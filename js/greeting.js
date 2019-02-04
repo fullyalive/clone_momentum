@@ -22,9 +22,23 @@ function askForName() {
 }
 
 function paintGreeting(text) {
+  const date = new Date();
+  const time = date.getHours();
+  let greetingWord = "";
+
+  if (time < 7) {
+    greetingWord = "Good day";
+  } else if (time < 10) {
+    greetingWord = "Good morning";
+  } else if (time < 18) {
+    greetingWord = "Good afternoon";
+  } else {
+    greetingWord = "Good evening";
+  }
+
   greetingForm.classList.remove(SHOWING_CN);
   greeting.classList.add(SHOWING_CN);
-  greeting.innerText = `Hello ${text}`;
+  greeting.innerText = `${greetingWord}, ${text}`;
 }
 
 function loadName() {
