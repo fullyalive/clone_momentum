@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Momentum</title>
-    <link rel="stylesheet" href="index.css" />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/index.css" />
   </head>
   <body>
+    <!-- 날씨 -->
+    <div class="weatherBox">
+      <span class="js-weather"></span>
+      <span class="js-location"></span>
+    </div>
     <!-- 시계 기능 -->
     <div class="js-clock">
       <h1>00:00</h1>
@@ -18,18 +24,17 @@
     </form>
     <h4 class="js-greetings greetings"></h4>
     <!-- 할 일 리스트 -->
-    <form class="js-toDoForm">
-      <input type="text" placeholder="Write a to do" />
-    </form>
-    <ul class="js-toDoList"></ul>
-    <!-- 날씨 -->
-    <span class="js-weather"></span>
-
+    <div class="js-toDoBox">
+      <form class="js-toDoForm">
+        <input type="text" placeholder="Write a to do" />
+      </form>
+      <ul class="js-toDoList"></ul>
+    </div>
     <!-- js import -->
+    <script src="js/weather.js"></script>
     <script src="js/clock.js"></script>
-    <script src="js/gretting.js"></script>
+    <script src="js/greeting.js"></script>
     <script src="js/todo.js"></script>
     <script src="js/background.js"></script>
-    <script src="js/weather.js"></script>
   </body>
 </html>

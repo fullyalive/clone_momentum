@@ -1,0 +1,144 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background-color: #ecf0f1;
+}
+
+input::placeholder:focus {
+  display: none;
+}
+
+button {
+  cursor: pointer;
+  background-color: transparent;
+  border: none;
+}
+
+.weatherBox {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 15px;
+  color: #ffffff;
+  font-weight: 600;
+}
+
+.js-clock {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 20%;
+  margin-bottom: 15px;
+}
+
+h1 {
+  color: #ffffff;
+  font-size: 160px;
+  font-weight: 600;
+  transition: color 0.5s ease-in-out;
+}
+
+.js-form {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  width: 100%;
+  /* height: 40px; */
+  padding-bottom: 5%;
+  color: #ffffff;
+}
+
+.js-greetings {
+  color: #ffffff;
+  font-size: 40px;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.js-toDoBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  min-height: 300px;
+  padding: 30px;
+  border-radius: 3px;
+  margin-bottom: 30px;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.js-toDoForm {
+  display: flex;
+  justify-content: center;
+  width: 60%;
+  margin-bottom: 30px;
+}
+
+.js-toDoList {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  color: white;
+}
+
+input[type="text"] {
+  width: 30%;
+  padding: 5px;
+  line-height: 20px;
+  background-color: transparent;
+  border: none;
+  color: #ffffff;
+  outline-style: none;
+  border-bottom: 2px solid #ffffff;
+  /* -webkit-transition: width 0.4s ease-in-out;
+  transition: border 0.4s ease-in-out; */
+}
+/* 
+input[type="text"]:hover {
+  border-bottom: 2px solid #ffffff;
+}
+input[type="text"]:focus {
+  border-bottom: 2px solid #ffffff;
+} */
+
+input::placeholder {
+  text-align: center;
+  color: #ffffff;
+  font-size: 20px;
+}
+.clicked {
+  color: #7f8c8d;
+}
+
+.form,
+.greetings {
+  display: none;
+}
+
+.showing {
+  display: flex;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.bgImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  animation: fadeIn 0.5s ease-in-out;
+}

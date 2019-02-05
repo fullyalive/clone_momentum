@@ -1,4 +1,5 @@
 const weather = document.querySelector(".js-weather");
+const locationInfo = document.querySelector(".js-location");
 
 const COORDS = "coords";
 const API_KEY = "272c07fa46ea481e3d7ae840c0fa027c";
@@ -11,12 +12,14 @@ function getWeather(lat, lng) {
       return response.json();
     })
     .then(function(json) {
-        //json이 준비되면
-        console.log(json);
-      const temperature = json.main.temp;
+      //json이 준비되면
+      console.log(json);
+      const temperature = Math.floor(json.main.temp);
       const place = json.name;
+      const country = json.sys.country;
       const condition = json.weather[0].main;
-        weather.innerText = `${condition} ${temperature} @${place} `;
+      weather.innerText = `${condition}, ${temperature}°C`;
+      locationInfo.innerText = `${country}, ${place}`;
     });
 }
 
