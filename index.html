@@ -18,11 +18,17 @@
     <div class="js-clock">
       <h1>00:00</h1>
     </div>
-    <!-- 유저 네임 저장 -->
-    <form class="js-form form">
-      <input type="text" placeholder="What is your name?" />
-    </form>
-    <h4 class="js-greetings greetings"></h4>
+    <!-- 유저 환영 -->
+    <div class="js-greetingBox">
+      <!-- 유저 네임 저장 -->
+      <div class="js-greetings__header">
+        <span class="js-greetings greetings"></span>
+        <span id="js-username" class="username"></span>
+      </div>
+      <form class="js-form form">
+        <input type="text" placeholder="What is your name?" />
+      </form>
+    </div>
     <!-- 오늘의 목표(focus) -->
     <div class="js-focusBox">
       <form class="js-focusForm form">
