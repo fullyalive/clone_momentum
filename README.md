@@ -4,8 +4,6 @@ Cloning momentum with Vanilla JS
 
 ## Structure
 
----
-
 ### **clock.js**
 
 - 현재 시간 표시

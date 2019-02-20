@@ -1,0 +1,17 @@
+.js-focusBox {
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  margin-bottom: 30px;
+}
+
+.js-focusForm {
+  width: 100%;
+}
+
+.js-focus {
+  color: white;
+  font-size: 30px;
+  font-weight: 600;
+  cursor: pointer;
+}

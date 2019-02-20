@@ -2,7 +2,7 @@ const greetingBox = document.querySelector(".js-greetingBox");
 const greetingForm = document.querySelector(".js-form");
 const greetingInput = greetingForm.querySelector("input");
 const greetingWords = document.querySelector(".js-greetings");
-const greetingUsername = document.getElementById("js-username");
+const greetingUsername = document.querySelector(".js-username");
 
 const USER_LS = "currentUser"; // user localStorage
 const SHOWING_CN = "showing"; // showing className
@@ -51,7 +51,6 @@ function handleModify() {
   greetingBox.classList.add(DIR_CHANGE);
   greetingUsername.classList.remove(SHOWING_CN);
   greetingForm.classList.add(SHOWING_CN);
-  greetingInput.classList.add(BOLD);
   greetingInput.setAttribute("value", currentUsername);
 }
 

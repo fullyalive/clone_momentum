@@ -1,0 +1,14 @@
+.js-clock {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 15%;
+  margin-bottom: 15px;
+}
+
+.time {
+  color: #ffffff;
+  font-size: 170px;
+  font-weight: 600;
+  transition: color 0.5s ease-in-out;
+}
