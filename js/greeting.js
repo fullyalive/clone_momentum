@@ -7,24 +7,10 @@ const greetingUsername = document.getElementById("js-username");
 const USER_LS = "currentUser"; // user localStorage
 const SHOWING_CN = "showing"; // showing className
 const DIR_CHANGE = "drReverse"; // flex-direction 바꾸기
-const BOLD = "bold";
 
 function askForName() {
   greetingForm.classList.add(SHOWING_CN);
   greetingForm.addEventListener("submit", handleSubmit);
-}
-
-function paintUsername(text) {
-  greetingUsername.classList.add(SHOWING_CN);
-  greetingUsername.innerText = `${text}`;
-}
-
-function modifyName() {
-  greetingUsername.addEventListener("click", handleModify);
-}
-
-function saveName(text) {
-  localStorage.setItem(USER_LS, text);
 }
 
 function paintGreeting() {
@@ -46,12 +32,18 @@ function paintGreeting() {
   greetingWords.innerText = `${greetingWord},`;
 }
 
-function handleSubmit(event) {
-  event.preventDefault();
-  const currentValue = greetingInput.value;
-  paintGreeting();
-  paintUsername(currentValue);
-  saveName(currentValue);
+function paintUsername(text) {
+  greetingUsername.classList.add(SHOWING_CN);
+  greetingUsername.innerText = `${text}`;
+}
+
+function modifyName() {
+  greetingUsername.addEventListener("click", handleModify);
+  greetingForm.addEventListener("submit", handleSubmit);
+}
+
+function saveName(text) {
+  localStorage.setItem(USER_LS, text);
 }
 
 function handleModify() {
@@ -63,14 +55,22 @@ function handleModify() {
   greetingInput.setAttribute("value", currentUsername);
 }
 
+function handleSubmit(event) {
+  event.preventDefault();
+  const currentValue = greetingInput.value;
+  paintGreeting(); // 인사말 출력
+  paintUsername(currentValue); // 유저 네임 출력
+  saveName(currentValue); // 유저 네임을 로컬 스토리지에 저장
+}
+
 function loadName() {
   const currentUser = localStorage.getItem(USER_LS);
   if (currentUser === null) {
     askForName();
   } else {
     paintGreeting();
-    modifyName(currentUser);
     paintUsername(currentUser);
+    modifyName(currentUser);
   }
 }
 

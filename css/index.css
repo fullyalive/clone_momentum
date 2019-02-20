@@ -163,11 +163,6 @@ input::placeholder {
   flex-direction: row;
 }
 
-.bold {
-  /* font-size: inherit; */
-  font-weight: 700;
-}
-
 @keyframes fadeIn {
   from {
     opacity: 0;
