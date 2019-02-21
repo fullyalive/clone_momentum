@@ -6,4 +6,5 @@
 @import "todo.css";
 @import "background.css";
 @import "shared.css";
-
+@import "flags/flags.css";
+@import "flags/flags.min.css";

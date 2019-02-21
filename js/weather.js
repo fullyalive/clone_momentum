@@ -1,6 +1,10 @@
+// import flagIcon from "flag-icon-css";
+
 const icon = document.querySelector("i");
 const weather = document.querySelector(".js-weather");
 const temperature = document.querySelector(".js-temperature");
+const flag = document.querySelector(".flag");
+const countryName = document.querySelector(".js-country");
 const locationInfo = document.querySelector(".js-location");
 
 const COORDS = "coords";
@@ -21,10 +25,17 @@ function getWeather(lat, lng) {
       const country = json.sys.country;
       const condition = json.weather[0].main;
       printWeather(condition);
+      printCountry(country, place);
       temperature.innerText = `${weatherTemperature}°C`;
-      locationInfo.innerText = `${country}, ${place}`;
-      // printLocation();
     });
+}
+
+function printCountry(country, place) {
+  const countryCode = country.toLowerCase();
+  flag.classList.add(`flag-${countryCode}`);
+  flag.setAttribute("alt", country);
+  countryName.innerText = `${country}`;
+  locationInfo.innerText = `| ${place}`;
 }
 
 function printWeather(condition) {

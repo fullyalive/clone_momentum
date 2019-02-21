@@ -25,7 +25,31 @@
   font-size: 20px;
   margin-bottom: 5px;
 }
+
 .js-weather {
   font-size: 12px;
+}
+
+.js-temperature {
+  font-size: 20px;
   font-weight: 400;
+}
+
+.country__information {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flag {
+  margin-right: 10px;
+  margin-bottom: 2px;
+}
+.js-country {
+  margin-right: 5px;
+}
+.js-location {
+  font-size: 15px;
+  font-weight: 400;
+  cursor: pointer;
 }
