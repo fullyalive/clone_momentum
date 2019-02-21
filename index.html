@@ -6,12 +6,26 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Momentum</title>
     <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+      integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
+      crossorigin="anonymous"
+    />
   </head>
   <body>
     <!-- 날씨 -->
     <div class="weatherBox">
-      <span class="js-weather"></span>
-      <span class="js-location"></span>
+      <div class="weatherBox__column">
+        <div class="weather__information">
+          <i id="weatherIcon"></i>
+          <span class="js-weather"></span>
+        </div>
+        <span class="js-temperature"></span>
+      </div>
+      <div class="weatherBox__column">
+        <span class="js-location"></span>
+      </div>
     </div>
     <!-- 시계 기능 -->
     <div class="js-clock">

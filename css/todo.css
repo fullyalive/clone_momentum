@@ -24,3 +24,7 @@
   align-items: flex-start;
   color: white;
 }
+
+.text {
+  cursor: pointer;
+}

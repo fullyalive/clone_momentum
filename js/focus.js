@@ -9,19 +9,6 @@ function saveFocus(text) {
   localStorage.setItem(FOCUS_LS, text);
 }
 
-function handleSubmit(event) {
-  event.preventDefault();
-  const currentValue = focusInput.value;
-  paintFocus(currentValue);
-  saveFocus(currentValue);
-}
-
-function handleModify() {
-  const currentValue = localStorage.getItem(FOCUS_LS);
-  focus.classList.remove(SHOWING_CF);
-  focusForm.classList.add(SHOWING_CF);
-  focusInput.setAttribute("value", currentValue);
-}
 function askForFocus() {
   focusForm.classList.add(SHOWING_CF);
   focusForm.addEventListener("submit", handleSubmit);
@@ -36,6 +23,20 @@ function paintFocus(text) {
 function modifyFocus() {
   focus.addEventListener("click", handleModify);
   focusForm.addEventListener("submit", handleSubmit);
+}
+
+function handleModify() {
+  const currentValue = localStorage.getItem(FOCUS_LS);
+  focus.classList.remove(SHOWING_CF);
+  focusForm.classList.add(SHOWING_CF);
+  focusInput.setAttribute("value", currentValue);
+}
+
+function handleSubmit(event) {
+  event.preventDefault();
+  const currentValue = focusInput.value;
+  paintFocus(currentValue);
+  saveFocus(currentValue);
 }
 
 function loadFocus() {

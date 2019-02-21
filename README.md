@@ -9,13 +9,26 @@ Cloning momentum with Vanilla JS
 - 현재 시간 표시
 
 ```
+function getTime() {
+  const date = new Date();
+  const hours = date.getHours();
+  const minutes = date.getMinutes();
+  const seconds = date.getSeconds();
+  clockTitle.innerText = `${hours < 10 ? `0${hours}` : hours}:${
+    minutes < 10 ? `0${minutes}` : minutes
+  }`;
+}
+```
+
+```
 setInterval(getTime, 1000);
 ```
 
 ### **weather.js**
 
 - openweathermap.org로부터 api를 받아와 localStorage에 저장
-- 날씨와 온도, 국과와 도시 출력
+- 날씨와 온도, 국가와 도시 출력
+- 날씨에 따라 아이콘 출력, 국가에 따라 국기 출력
 
 ```
 fetch(
@@ -31,10 +44,40 @@ function saveCoords(coordsObj) {
   localStorage.setItem(COORDS, JSON.stringify(coordsObj));
 }
 ```
+```
+function printWeather(condition) {
+  let weatherTitle = "";
+  let weatherClass = "";
+
+  if (condition === "Rain") {
+    (weatherTitle = "비"), (weatherClass = "fas fa-cloud-rain");
+  } else if (condition === "Clear") {
+    (weatherTitle = "화창"), (weatherClass = "far fa-sun");
+  } else if (condition === "Thunderstorm") {
+    (weatherTitle = "천둥번개"), (weatherClass = "fas fa-bolt");
+  } else if (condition === "Clouds") {
+    (weatherTitle = "구름"), (weatherClass = "fas fa-cloud");
+  } else if (condition === "Snow") {
+    (weatherTitle = "눈"), (weatherClass = "far fa-snowflake");
+  } else if (condition === "Drizzle") {
+    (weatherTitle = "이슬비"), (weatherClass = "fas fa-umbrella");
+  } else if (condition === "Haze") {
+    (weatherTitle = "안개"), (weatherClass = "fas fa-cloud-meatball");
+  } else if (condition === "Mist") {
+    (weatherTitle = "안개"), (weatherClass = "fab fa-cloudsmith");
+  } else {
+    (weatherTitle = "적당한 날씨"), (weatherClass = "fas fa-feather-alt");
+  }
+  const className = weatherClass.split(" ");
+  weatherIcon = icon.classList.add(...className);
+  weatherName = weather.innerText = `${weatherTitle}`;
+}
+```
 
 ### **greeting.js**
 
 - 유저로부터 네임을 입력받아 localStorage에 저장
+- 유저네임을 업데이트
 - clock.js에서 받아온 시간에 따라 인사말 다르게 출력
 
 ```
@@ -70,6 +113,42 @@ function paintGreeting() {
 
 ### **focus.js**
 
+- 유저로부터 목표를 입력받아 localStorage에 저장
+- 목표를 업데이트
+
+```
+function handleSubmit(event) {
+  event.preventDefault();
+  const currentValue = focusInput.value;
+  paintFocus(currentValue);
+  saveFocus(currentValue);
+}
+```
+
 ### **todo.js**
 
+- 할 일 등록
+- 할 일 수정
+- 할 일 삭제
+- 할 일이 없을 경우 박스 접기
+
 ### **background.js**
+
+- 배경 이미지 랜덤 출력
+
+```
+const IMG_NUMBER = 6;
+
+function paintImage(imgNumber) {
+  const image = new Image();
+  image.src = `images/${imgNumber + 1}.jpg`;
+  image.classList.add("bgImage");
+  body.appendChild(image)
+}
+
+function genRandom() {
+  // 랜덤 넘버 생성
+  const number = Math.floor(Math.random() * IMG_NUMBER);
+  return number;
+}
+```

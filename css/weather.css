@@ -2,7 +2,30 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 15px;
+  padding: 15px 25px;
   color: #ffffff;
   font-weight: 600;
+}
+
+.weatherBox__column {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.weather__information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+#weatherIcon {
+  font-size: 20px;
+  margin-bottom: 5px;
+}
+.js-weather {
+  font-size: 12px;
+  font-weight: 400;
 }

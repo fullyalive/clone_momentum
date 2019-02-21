@@ -1,12 +1,13 @@
 const toDoForm = document.querySelector(".js-toDoForm");
 const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.querySelector(".js-toDoList");
+const toDoContent = document.querySelector(".text");
 
-const TODOS_LS = "toDos"; // toDos Local Storage
+const TODOS_LS = "toDos"; // 투두 로컬스토리지
 let toDos = [];
 
 function deleteToDos(event) {
-  // toDo 리스트를 삭제하는 함수
+  // 투두리스트를 삭제하는 함수
   const btn = event.target;
   const content = btn.parentNode;
   toDoList.removeChild(content);
@@ -20,7 +21,7 @@ function deleteToDos(event) {
 }
 
 function saveToDos() {
-  // toDo를 가져와서 로컬스토리지에 저장하는 역할
+  // 투두를 가져와서 로컬스토리지에 저장하는 역할
   localStorage.setItem(TODOS_LS, JSON.stringify(toDos));
 }
 
@@ -29,6 +30,7 @@ function paintToDo(text) {
   const toDo = document.createElement("li");
   const deleteBtn = document.createElement("button");
   const toDoContent = document.createElement("span");
+  toDoContent.classList.add("text");
   const newId = toDos.length + 1;
 
   deleteBtn.innerHTML = "❌";
@@ -49,6 +51,13 @@ function paintToDo(text) {
   saveToDos();
 }
 
+function handleSubmit(event) {
+  event.preventDefault();
+  const currentValue = toDoInput.value;
+  paintToDo(currentValue);
+  toDoInput.value = ""; // 엔터치고 나서 인풋 폼을 공백으로 만듣는 것
+}
+
 function loadToDos() {
   const loadedToDos = localStorage.getItem(TODOS_LS);
   if (loadedToDos !== null) {
@@ -56,16 +65,10 @@ function loadToDos() {
     parsedToDos.forEach(function(content) {
       // 각각에 대해서 paintToDo 함수 실행 | content는 potato 등으로 변경해줘도 상관없는 인스턴스
       paintToDo(content.text);
+      // modifyToDo(content.text);
     });
     // forEach : array의 속성 - 기본적으로 함수를 실행하는데, array에 담겨 있는 것들 각각에 한번씩 함수를 실행시켜준다.
   }
-}
-
-function handleSubmit(event) {
-  event.preventDefault();
-  const currentValue = toDoInput.value;
-  paintToDo(currentValue);
-  toDoInput.value = ""; // 엔터치고 나서 인풋 폼을 공백으로 만듣는 것
 }
 
 function init() {
