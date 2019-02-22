@@ -1,8 +1,10 @@
-# clone_momentum
+# **clone_momentum**
 
 Cloning momentum with Vanilla JS
 
 ## Structure
+
+[flag-icon-css](http://flag-icon-css.lip.is/) - 전세계 국기 icon css
 
 ### **clock.js**
 
@@ -44,6 +46,7 @@ function saveCoords(coordsObj) {
   localStorage.setItem(COORDS, JSON.stringify(coordsObj));
 }
 ```
+
 ```
 function printWeather(condition) {
   let weatherTitle = "";
@@ -127,10 +130,30 @@ function handleSubmit(event) {
 
 ### **todo.js**
 
-- 할 일 등록
+- 할 일 등록(최신순으로 정렬)
 - 할 일 수정
 - 할 일 삭제
 - 할 일이 없을 경우 박스 접기
+
+```
+function handleSubmit(event) {
+  event.preventDefault();
+  const selector = event.target;
+  let currentValue = "";
+  if (selector.className === "js-toDoForm") {
+    currentValue = toDoInput.value;
+    toDoInput.value = ""; 
+    paintToDo(currentValue);
+  } else {
+    currentValue = selector.lastChild.value;
+    selector.classList.remove("clicked"); 
+    selector.previousSibling.classList.remove("removed"); 
+    selector.previousSibling.innerHTML = `${currentValue}`; 
+    toDos[selector.parentNode.id - 1].text = `${currentValue}`;
+    saveToDos();
+  }
+}
+```
 
 ### **background.js**
 
