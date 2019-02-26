@@ -1,0 +1,50 @@
+.menuBox {
+  display: flex;
+  padding-bottom: 1px;
+  margin-left: 50px;
+  cursor: pointer;
+}
+
+.linkBox {
+  position: relative;
+  margin-right: 10px;
+}
+
+.linkContainer {
+  position: absolute;
+  top: 30px;
+  display: none;
+  flex-direction: column;
+  width: 300px;
+  padding: 15px;
+  border-radius: 3px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.linkBtns {
+  display: flex;
+  justify-content: space-between;
+}
+
+.linkBtns .addLink {
+  cursor: pointer;
+}
+
+.linkBtns i {
+  cursor: pointer;
+}
+
+.js-linkForm {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.menuBox .btnChrome {
+  color: white;
+}
+
+.unveil {
+  display: flex;
+}

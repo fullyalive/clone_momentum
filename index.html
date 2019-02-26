@@ -22,8 +22,30 @@
           <span class="js-weather"></span>
         </div>
         <span class="js-temperature"></span>
+        <!-- 메뉴 -->
+        <div class="menuBox">
+          <div class="linkBox">
+            <i class="fas fa-link"></i>
+            <div class="linkContainer">
+              <ul class="js-linkList"></ul>
+              <div class="linkBtns">
+                <span class="addLink">링크 추가</span>
+                <span class="cancelBtn removed">
+                  <i class="fas fa-times"></i>
+                </span>
+              </div>
+              <form class="js-linkForm">
+                <input type="text" placeholder="NAME" />
+                <input type="text" placeholder="URL" />
+              </form>
+            </div>
+          </div>
+          <a class="btnChrome" href="https://google.com" target="_blank">
+            <i class="fab fa-chrome"></i>
+          </a>
+        </div>
       </div>
-      <div class="weatherBox__column">
+      <div class="locationBox__column">
         <div class="country__information">
           <img src="css/flags/blank.gif" class="flag" alt="" />
           <span class="js-country"></span>
@@ -62,6 +84,7 @@
     </div>
     <!-- js import -->
     <script src="js/weather.js"></script>
+    <script src="js/link.js"></script>
     <script src="js/clock.js"></script>
     <script src="js/greeting.js"></script>
     <script src="js/focus.js"></script>
